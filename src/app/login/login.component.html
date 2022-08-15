@@ -1,0 +1,21 @@
+<p>{{title}}</p>
+<p>login works!</p>
+
+<!-- Two ways binding. Bindeo de variable es en ambas direcciones -->
+<!-- [(ngModel)] es directiva con evento -->
+<!-- si pongo [class] es directiva y toma el valor de variable de clase, class sin [] es el atributo -->
+<input type="text" [(ngModel)] = "title">
+<!-- <input type="text" [value] = "title" (change) = ""> -->
+
+
+<!-- [disabled] es directiva de atributo y puede contener una expresion -->
+<!-- Angular interpreta lo que está entre " " como un método. Un string debe estar entre ' ' -->
+<!-- One way binding porque la variable fluye del modelo hacia la vista -->
+<button [disabled]="modificado" (click)="cambiarTitle()">Cambiar title</button>
+<!-- <button [disabled]="modificado && title !== ''" (click)="cambiarTitle()">Cambiar title</button> -->
+<!-- <button [disabled]="modificado !== true" (click)="cambiarTitle()">Cambiar title</button> -->
+
+<!-- {{expresion}} -->
+<!-- [directiva de atributo] -->
+<!-- (evento) -->
+<!-- Contador -->
