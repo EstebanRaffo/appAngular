@@ -9,6 +9,7 @@
         <p *ngIf="myForm.get('nombre')?.hasError('required')">Campo obligatorio</p>
         <p *ngIf="myForm.get('nombre')?.hasError('minlength')">nombre debe tener al menos 3 caracteres</p>
     </div>
+    <br>
     <div>
         <label>Apellido</label>
         <input type="text" formControlName="apellido">
@@ -17,14 +18,28 @@
         <p *ngIf="myForm.get('apellido')?.hasError('required')">Campo obligatorio</p>
         <p *ngIf="myForm.get('apellido')?.hasError('minlength')">nombre debe tener al menos 3 caracteres</p>
     </div>
+    <br>
+    <div>
+        <label>Telefono</label>
+        <input type="text" formControlName="telefono">    
+    </div>
+    <br>
     <div>
         <label>Email</label>
         <input type="text" formControlName="correo">
     </div>
+    <br>
     <div>
         <label>Contraseña</label>
-        <input type="text" formControlName="clave">
+        <input type="text" formControlName="clave" [ngClass]="{error:myForm.get('clave')?.hasError('required') 
+        && myForm.get('clave')?.dirty, warning:myForm.get('clave')?.hasError('minlength') || myForm.get('clave')?.hasError('maxlength')}">
     </div>
+    <div *ngIf="myForm.get('clave')?.errors && myForm.get('clave')?.dirty">
+        <p *ngIf="myForm.get('clave')?.hasError('required')">Campo obligatorio</p>
+        <p *ngIf="myForm.get('clave')?.hasError('minlength') && myForm.get('clave')?.hasError('maxlength')">
+            La clave debe tener entre 6 y 10 caracteres</p>
+    </div>
+    <br>
     <button [disabled]="myForm.invalid" type="submit">Registrarse</button>
 </form>
 

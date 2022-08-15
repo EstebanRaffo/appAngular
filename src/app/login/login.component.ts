@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,24 @@ export class LoginComponent implements OnInit {
   // Variable de Clase
   title = "Login" 
   modificado = false
-  constructor() { }
+  myLogin:FormGroup
+
+  constructor(private fl:FormBuilder) {
+    this.myLogin = this.fl.group({
+      email:["",[Validators.required]],
+      password:["",[Validators.required]]  
+    })
+  }
+  
+  login(){
+    console.log(this.myLogin.value)
+  }
+
   cambiarTitle(){
     this.title = "Login Angular"
     this.modificado = true
   }
+  
   ngOnInit(): void {
   }
 
