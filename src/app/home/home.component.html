@@ -1,5 +1,5 @@
 <!-- [ngStyle] es directiva de atributo, solo modifica atributo de un elemento html -->
-<p [style.fontSize.px] = "tamano">etiqueta con style</p>
+<!-- <p [style.fontSize.px] = "tamano">etiqueta con style</p>
 <p [ngStyle] = "{'font-size': tamano + 'px', 'color': 'blue'}">etiqueta con ngStyle</p>
 <input type="text" [(ngModel)]="title" [class]="classInput">
 <button [disabled]="modificado" (click)="cambiarTitle()">Cambiar title</button>
@@ -9,23 +9,30 @@
     <button (click)="calcular()">Calcular</button>
     <div [ngClass]="{ok:resultado > 0, error:resultado < 0}">resultado: {{resultado}}</div>
     <!-- con directiva estructural, lo saca del DOM -->
-    <div *ngIf="resultado > 0">Resultado positivo! con *ngIf</div>
-    <div *ngIf="resultado <= 0">Resultado negativo! con *ngIf</div>
+    <!-- <div *ngIf="resultado > 0">Resultado positivo! con *ngIf</div> -->
+    <!-- <div *ngIf="resultado <= 0">Resultado negativo! con *ngIf</div> -->
     <!-- con directiva de atributo, solo lo oculta pero sigue en el DOM -->
-    <div [hidden]="resultado <= 0">Resultado positivo! con hidden</div>
-</div>
+    <!-- <div [hidden]="resultado <= 0">Resultado positivo! con hidden</div> -->
+<!-- </div>  -->
 <!-- [*ngFor] es directiva estructural (tienen *), modifican la estructura del DOM -->
 <h1>Productos</h1>
 <div>
     <div *ngFor="let producto of productos">
         <h2>{{producto.title}}</h2>
         <p>{{producto.price}}</p>
-        <p>{{producto | json}}</p>
+        <!-- <p>{{producto | json}}</p> -->
     </div>
-    <button (click)="addProduct()">Nuevo Producto</button>
+    <!-- <button (click)="addProduct()">Nuevo Producto</button>
     <h3>Categorias</h3>
     <div *ngFor="let categoria of categorias">
         <p>{{categoria}}</p>
-    </div>    
+    </div>     -->
 </div>
-
+<h1>Productos async</h1>
+<div *ngIf="!loading">
+    <div *ngFor="let producto of productosAsync">
+        <h2>{{producto.title}}</h2>
+        <p>{{producto.price}}</p>
+        <!-- <p>{{producto | json}}</p> -->
+    </div>
+</div>

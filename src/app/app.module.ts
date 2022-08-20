@@ -11,6 +11,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { BannersComponent } from './banners/banners.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetalleComponent } from './detalle/detalle.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
