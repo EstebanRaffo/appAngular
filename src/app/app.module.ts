@@ -11,7 +11,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { BannersComponent } from './banners/banners.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { DetalleComponent } from './detalle/detalle.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ConcatenarPipe } from './concatenar.pipe'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http'
     RegistroComponent,
     BannersComponent,
     CatalogoComponent,
-    DetalleComponent
+    DetalleComponent,
+    ConcatenarPipe
   ],
   imports: [
     BrowserModule,

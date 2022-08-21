@@ -34,9 +34,14 @@ export class HomeComponent implements OnInit {
 
   productos:any = [] // any es el tipo: puede ser cualquier cosa
   productosAsync:any = []
-  loading = true
+  productosObs:any = []
+  loading: boolean = true
+  cantidad: number = 0
+  titulo:string=""
+  categorias:string[]=[]
   constructor(private productosServices: ProductosService) {
     // para ver el observable hasta que resuelva la llamada debe suscribirse, similar al .then de las promesas en JS
+    const title:string=""
     this.productosServices.getAll().subscribe({
       next:(data:any)=>{
         console.log(data)
@@ -48,6 +53,7 @@ export class HomeComponent implements OnInit {
       }
     })
     
+    this.productosObs = this.productosServices.getAllPipe()
     this.init()
   }
   async init(){
